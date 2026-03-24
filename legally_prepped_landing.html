@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Legally Prepped | Land Your Law School Seat</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #1B2A4A;
+    --navy-deep: #0f1a30;
+    --gold: #B8962E;
+    --gold-light: #D4AE50;
+    --gold-pale: #F5EDD6;
+    --cream: #FAF7F2;
+    --white: #ffffff;
+    --text-dark: #1a1a1a;
+    --text-mid: #444444;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Montserrat', sans-serif;
+    background: var(--cream);
+    color: var(--text-dark);
+    overflow-x: hidden;
+  }
+
+  /* HERO */
+  .hero {
+    background: var(--navy-deep);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 80px 24px 60px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(ellipse at 30% 40%, rgba(184,150,46,0.08) 0%, transparent 60%),
+                radial-gradient(ellipse at 70% 60%, rgba(184,150,46,0.05) 0%, transparent 50%);
+    pointer-events: none;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  }
+
+  .badge {
+    display: inline-block;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    border: 1px solid rgba(184,150,46,0.4);
+    padding: 8px 20px;
+    margin-bottom: 40px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-eyebrow {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(14px, 2vw, 18px);
+    font-weight: 300;
+    font-style: italic;
+    color: var(--gold-light);
+    letter-spacing: 0.05em;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(36px, 6vw, 72px);
+    font-weight: 600;
+    color: var(--white);
+    line-height: 1.1;
+    max-width: 900px;
+    margin-bottom: 24px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--gold-light);
+  }
+
+  .hero-sub {
+    font-size: clamp(14px, 1.8vw, 17px);
+    font-weight: 300;
+    color: rgba(255,255,255,0.7);
+    max-width: 560px;
+    line-height: 1.7;
+    margin-bottom: 48px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-ctas {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .btn-primary {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--navy-deep);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 18px 40px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .btn-primary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255,255,255,0.15);
+    transition: left 0.3s ease;
+  }
+
+  .btn-primary:hover::before { left: 0; }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(184,150,46,0.4); }
+
+  .btn-outline {
+    display: inline-block;
+    background: transparent;
+    color: var(--white);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 18px 40px;
+    border: 1px solid rgba(255,255,255,0.3);
+    transition: all 0.3s ease;
+  }
+
+  .btn-outline:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+    transform: translateY(-2px);
+  }
+
+  .scroll-hint {
+    position: absolute;
+    bottom: 32px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    color: rgba(255,255,255,0.3);
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+
+  .scroll-line {
+    width: 1px;
+    height: 40px;
+    background: linear-gradient(180deg, var(--gold), transparent);
+    animation: scrollPulse 2s ease-in-out infinite;
+  }
+
+  @keyframes scrollPulse {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 1; }
+  }
+
+  /* HOOK SECTION */
+  .hook {
+    background: var(--cream);
+    padding: 100px 24px;
+    max-width: 760px;
+    margin: 0 auto;
+  }
+
+  .hook-intro {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(22px, 3vw, 30px);
+    font-weight: 400;
+    font-style: italic;
+    color: var(--navy);
+    line-height: 1.5;
+    margin-bottom: 40px;
+    padding-left: 24px;
+    border-left: 3px solid var(--gold);
+  }
+
+  .hook p {
+    font-size: 16px;
+    font-weight: 300;
+    color: var(--text-mid);
+    line-height: 1.9;
+    margin-bottom: 24px;
+  }
+
+  .hook-truth {
+    background: var(--navy);
+    padding: 40px 48px;
+    margin: 48px 0;
+    position: relative;
+  }
+
+  .hook-truth::before {
+    content: '"';
+    position: absolute;
+    top: -20px;
+    left: 32px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 80px;
+    color: var(--gold);
+    line-height: 1;
+  }
+
+  .hook-truth p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(20px, 2.5vw, 26px);
+    font-weight: 600;
+    color: var(--white);
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  .hook-truth em {
+    color: var(--gold-light);
+    font-style: italic;
+  }
+
+  /* WHAT CHANGES */
+  .changes {
+    background: var(--navy);
+    padding: 100px 24px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .changes::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(184,150,46,0.06) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .section-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    text-align: center;
+    margin-bottom: 16px;
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(32px, 4vw, 52px);
+    font-weight: 600;
+    color: var(--white);
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 64px;
+    line-height: 1.2;
+  }
+
+  .section-title em {
+    font-style: italic;
+    color: var(--gold-light);
+  }
+
+  .changes-grid {
+    max-width: 900px;
+    margin: 0 auto;
+    display: grid;
+    gap: 0;
+  }
+
+  .change-item {
+    display: grid;
+    grid-template-columns: 60px 1fr;
+    gap: 0 24px;
+    padding: 32px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+    align-items: start;
+  }
+
+  .change-item:last-child { border-bottom: none; }
+
+  .change-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 48px;
+    font-weight: 300;
+    color: rgba(184,150,46,0.3);
+    line-height: 1;
+    padding-top: 4px;
+  }
+
+  .change-content strong {
+    display: block;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--gold-light);
+    margin-bottom: 8px;
+  }
+
+  .change-content p {
+    font-size: 15px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.75);
+    line-height: 1.8;
+  }
+
+  .changes-closer {
+    max-width: 700px;
+    margin: 64px auto 0;
+    text-align: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(22px, 3vw, 30px);
+    font-weight: 600;
+    font-style: italic;
+    color: var(--white);
+    line-height: 1.5;
+  }
+
+  .changes-closer em { color: var(--gold-light); }
+
+  /* TESTIMONIAL */
+  .testimonial {
+    background: var(--gold-pale);
+    padding: 80px 24px;
+    text-align: center;
+  }
+
+  .testimonial-inner {
+    max-width: 680px;
+    margin: 0 auto;
+  }
+
+  .testimonial-mark {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 80px;
+    color: var(--gold);
+    line-height: 0.5;
+    margin-bottom: 32px;
+    display: block;
+  }
+
+  .testimonial-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(22px, 3vw, 32px);
+    font-weight: 400;
+    font-style: italic;
+    color: var(--navy);
+    line-height: 1.5;
+    margin-bottom: 24px;
+  }
+
+  .testimonial-attr {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  /* OFFERS */
+  .offers {
+    background: var(--cream);
+    padding: 100px 24px;
+  }
+
+  .offers-inner {
+    max-width: 960px;
+    margin: 0 auto;
+  }
+
+  .offers-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-top: 64px;
+  }
+
+  @media (max-width: 700px) {
+    .offers-grid { grid-template-columns: 1fr; }
+    .hero-ctas { flex-direction: column; align-items: center; }
+    .change-item { grid-template-columns: 40px 1fr; }
+  }
+
+  .offer-card {
+    background: var(--white);
+    border: 1px solid rgba(27,42,74,0.1);
+    padding: 48px 40px;
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .offer-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 60px rgba(27,42,74,0.12);
+  }
+
+  .offer-card.featured {
+    background: var(--navy);
+    border-color: var(--gold);
+  }
+
+  .offer-card.featured::before {
+    content: 'MOST POPULAR';
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--gold);
+    color: var(--navy-deep);
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.25em;
+    padding: 4px 16px;
+    white-space: nowrap;
+  }
+
+  .offer-symbol {
+    font-size: 20px;
+    color: var(--gold);
+    margin-bottom: 16px;
+    display: block;
+  }
+
+  .offer-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 8px;
+    line-height: 1.2;
+  }
+
+  .offer-card.featured .offer-name { color: var(--white); }
+
+  .offer-price {
+    font-size: 42px;
+    font-weight: 700;
+    color: var(--gold);
+    margin-bottom: 24px;
+    line-height: 1;
+  }
+
+  .offer-price span {
+    font-size: 18px;
+    font-weight: 300;
+    color: var(--gold-light);
+  }
+
+  .offer-desc {
+    font-size: 14px;
+    font-weight: 300;
+    color: var(--text-mid);
+    line-height: 1.8;
+    margin-bottom: 32px;
+  }
+
+  .offer-card.featured .offer-desc { color: rgba(255,255,255,0.7); }
+
+  .offer-features {
+    list-style: none;
+    margin-bottom: 40px;
+  }
+
+  .offer-features li {
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--text-mid);
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(27,42,74,0.06);
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    line-height: 1.5;
+  }
+
+  .offer-card.featured .offer-features li {
+    color: rgba(255,255,255,0.8);
+    border-bottom-color: rgba(255,255,255,0.08);
+  }
+
+  .offer-features li::before {
+    content: '✦';
+    color: var(--gold);
+    font-size: 10px;
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+
+  .offer-btn {
+    display: block;
+    text-align: center;
+    padding: 18px 32px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  .offer-btn-dark {
+    background: var(--navy);
+    color: var(--white);
+  }
+
+  .offer-btn-dark:hover {
+    background: var(--navy-deep);
+    transform: translateY(-2px);
+  }
+
+  .offer-btn-gold {
+    background: var(--gold);
+    color: var(--navy-deep);
+  }
+
+  .offer-btn-gold:hover {
+    background: var(--gold-light);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(184,150,46,0.4);
+  }
+
+  .offers-note {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 14px;
+    font-weight: 300;
+    color: var(--text-mid);
+    line-height: 1.7;
+  }
+
+  .offers-note a {
+    color: var(--navy);
+    font-weight: 600;
+    text-decoration: none;
+    border-bottom: 1px solid var(--gold);
+  }
+
+  /* URGENCY */
+  .urgency {
+    background: var(--navy-deep);
+    padding: 80px 24px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .urgency::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at center, rgba(184,150,46,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .urgency-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(28px, 4vw, 48px);
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: 16px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .urgency-title em { color: var(--gold-light); font-style: italic; }
+
+  .urgency-sub {
+    font-size: 15px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.6);
+    margin-bottom: 48px;
+    position: relative;
+    z-index: 1;
+    line-height: 1.7;
+  }
+
+  .urgency-details {
+    display: flex;
+    justify-content: center;
+    gap: 48px;
+    flex-wrap: wrap;
+    margin-bottom: 48px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .urgency-detail {
+    text-align: center;
+  }
+
+  .urgency-detail-value {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 42px;
+    font-weight: 600;
+    color: var(--gold);
+    display: block;
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  .urgency-detail-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+  }
+
+  .urgency-divider {
+    width: 1px;
+    height: 60px;
+    background: rgba(255,255,255,0.1);
+    align-self: center;
+  }
+
+  /* BIO */
+  .bio {
+    background: var(--gold-pale);
+    padding: 80px 24px;
+  }
+
+  .bio-inner {
+    max-width: 760px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    gap: 48px;
+    align-items: start;
+  }
+
+  @media (max-width: 600px) {
+    .bio-inner { grid-template-columns: 1fr; }
+    .urgency-divider { display: none; }
+  }
+
+  .bio-avatar {
+    width: 100%;
+    aspect-ratio: 1;
+    background: var(--navy);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .bio-avatar::after {
+    content: 'DL';
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 48px;
+    font-weight: 600;
+    color: var(--gold);
+  }
+
+  .bio-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 12px;
+  }
+
+  .bio-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 32px;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 20px;
+    line-height: 1.2;
+  }
+
+  .bio-text {
+    font-size: 15px;
+    font-weight: 300;
+    color: var(--text-mid);
+    line-height: 1.9;
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--navy-deep);
+    padding: 40px 24px;
+    text-align: center;
+    border-top: 1px solid rgba(184,150,46,0.2);
+  }
+
+  .footer-brand {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: 8px;
+    letter-spacing: 0.05em;
+  }
+
+  .footer-sub {
+    font-size: 11px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.4);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero > * {
+    animation: fadeUp 0.8s ease forwards;
+  }
+
+  .badge { animation-delay: 0.1s; opacity: 0; }
+  .hero-eyebrow { animation-delay: 0.2s; opacity: 0; }
+  .hero h1 { animation-delay: 0.35s; opacity: 0; }
+  .hero-sub { animation-delay: 0.5s; opacity: 0; }
+  .hero-ctas { animation-delay: 0.65s; opacity: 0; }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <span class="badge">Spring 2026 Cohort — Now Enrolling</span>
+  <p class="hero-eyebrow">A message for the first-generation prelaw student who is done figuring this out alone</p>
+  <h1>The law school application process was built for people with <em>insider access.</em><br>Legally Prepped exists to change that.</h1>
+  <p class="hero-sub">An 8-week cohort for first-generation students of color who are ready to land their seat — without the network, the connections, or the guesswork.</p>
+  <div class="hero-ctas">
+    <a href="YOUR_CORE_STRIPE_LINK" class="btn-primary">Enroll in the Cohort — $297</a>
+    <a href="YOUR_FULL_EXPERIENCE_STRIPE_LINK" class="btn-outline">Get the Full Experience — $597</a>
+  </div>
+  <div class="scroll-hint">
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- HOOK -->
+<section class="hook">
+  <p class="hook-intro">I already know why you're here.</p>
+  <p>You've been thinking about law school for a while now. Maybe a long while. You've done the research, watched the YouTube videos, maybe even taken the LSAT once or twice. But somewhere in all of that, you started to wonder if the people who actually get in just... know something you don't.</p>
+  <p>Like there's a conversation happening in rooms you've never been invited into.</p>
+  <p>And maybe — just maybe — the fact that you didn't grow up with lawyers in your family, didn't go to a target undergrad, didn't have a mentor who could walk you through this process step by step... maybe that means this dream is going to be harder for you than it is for everyone else.</p>
+  <p><strong>Did I just describe you?</strong></p>
+  <div class="hook-truth">
+    <p>The gap isn't your intelligence. It isn't your GPA or your LSAT score or how badly you want it. <em>The gap is access.</em> And that's exactly what Legally Prepped closes.</p>
+  </div>
+  <p>Here's what I know: you are not behind. You are not too old. You are not too inexperienced. You simply haven't had someone sit across from you and show you exactly how this works — until now.</p>
+</section>
+
+<!-- WHAT CHANGES -->
+<section class="changes">
+  <p class="section-label">What Legally Prepped Does</p>
+  <h2 class="section-title">Here's what changes over <em>8 weeks</em></h2>
+  <div class="changes-grid">
+    <div class="change-item">
+      <span class="change-number">01</span>
+      <div class="change-content">
+        <strong>Your Personal Statement</strong>
+        <p>You stop staring at a blank document and start building a personal statement that actually sounds like you — strategic, specific, and impossible to ignore.</p>
+      </div>
+    </div>
+    <div class="change-item">
+      <span class="change-number">02</span>
+      <div class="change-content">
+        <strong>Your School List</strong>
+        <p>You stop applying to schools based on name recognition and start building a list that fits your profile, your goals, and your real life.</p>
+      </div>
+    </div>
+    <div class="change-item">
+      <span class="change-number">03</span>
+      <div class="change-content">
+        <strong>Your Roadmap</strong>
+        <p>You stop missing deadlines and losing track of requirements and start moving through the process with a personalized roadmap that keeps you organized from start to submitted.</p>
+      </div>
+    </div>
+    <div class="change-item">
+      <span class="change-number">04</span>
+      <div class="change-content">
+        <strong>Your Letters of Recommendation</strong>
+        <p>You learn how to ask for letters of recommendation in a way that makes your recommenders want to go to bat for you — not just write something generic because they felt obligated.</p>
+      </div>
+    </div>
+    <div class="change-item">
+      <span class="change-number">05</span>
+      <div class="change-content">
+        <strong>Your Professional Presence</strong>
+        <p>You build a professional presence and start making connections — even if you're starting from zero and don't know a single attorney personally.</p>
+      </div>
+    </div>
+    <div class="change-item">
+      <span class="change-number">06</span>
+      <div class="change-content">
+        <strong>Your Community</strong>
+        <p>Every single week, you show up to a live group call with other driven, first-gen students of color who are in it with you. No more figuring this out alone at midnight, wondering if you're doing it right.</p>
+      </div>
+    </div>
+  </div>
+  <p class="changes-closer">By the time this cohort ends, you won't just have a completed application.<br><em>You'll be the person in the room who finally knows how this works.</em></p>
+</section>
+
+<!-- TESTIMONIAL -->
+<section class="testimonial">
+  <div class="testimonial-inner">
+    <span class="testimonial-mark">"</span>
+    <p class="testimonial-text">I really hope people take advantage of having this type of access to you. You are truly a gem and completely changed the game for me.</p>
+    <p class="testimonial-attr">— Taylor H., Legally Prepped Beta Cohort</p>
+  </div>
+</section>
+
+<!-- OFFERS -->
+<section class="offers">
+  <div class="offers-inner">
+    <p class="section-label" style="text-align:center;">Choose Your Experience</p>
+    <h2 class="section-title" style="color:var(--navy);">Here's how to <em>join us</em></h2>
+    <div class="offers-grid">
+
+      <div class="offer-card">
+        <span class="offer-symbol">✦</span>
+        <h3 class="offer-name">Legally Prepped Cohort</h3>
+        <p class="offer-price">$297</p>
+        <p class="offer-desc">Everything you need to navigate the law school admissions process with confidence — from first draft to final submission.</p>
+        <ul class="offer-features">
+          <li>8 weekly live group sessions with Coach Dani</li>
+          <li>Weekly assignments and expanded workbook</li>
+          <li>School selection and metrics mapping</li>
+          <li>Personal statement strategy and development</li>
+          <li>Letters of recommendation guidance</li>
+          <li>Networking and digital presence building</li>
+          <li>Private community chat and accountability</li>
+          <li>Optional add-ons available at checkout</li>
+        </ul>
+        <a href="YOUR_CORE_STRIPE_LINK" class="offer-btn offer-btn-dark">Enroll in the Cohort — $297</a>
+      </div>
+
+      <div class="offer-card featured">
+        <span class="offer-symbol">✦</span>
+        <h3 class="offer-name">The Full Experience</h3>
+        <p class="offer-price">$597</p>
+        <p class="offer-desc">For the student who wants it all from day one. The most direct path to your seat in the 1L class.</p>
+        <ul class="offer-features">
+          <li>Everything inside the cohort</li>
+          <li>3 one-on-one coaching sessions with Coach Dani</li>
+          <li>Personal statement review with one revision round</li>
+          <li>Personalized strategy for your unique background</li>
+          <li>Priority access and dedicated support</li>
+          <li>Bundled at a price less than buying separately</li>
+        </ul>
+        <a href="YOUR_FULL_EXPERIENCE_STRIPE_LINK" class="offer-btn offer-btn-gold">Get the Full Experience — $597</a>
+      </div>
+
+    </div>
+    <p class="offers-note">Not sure which is right for you? <a href="mailto:hello@danilynredefined.com">Email Coach Dani</a> and she'll help you decide in two minutes.</p>
+  </div>
+</section>
+
+<!-- URGENCY -->
+<section class="urgency">
+  <h2 class="urgency-title">Cohort starts <em>April 6th.</em></h2>
+  <p class="urgency-sub">Spots are intentionally limited. When they're gone, they're gone.</p>
+  <div class="urgency-details">
+    <div class="urgency-detail">
+      <span class="urgency-detail-value">8</span>
+      <span class="urgency-detail-label">Weeks of Curriculum</span>
+    </div>
+    <div class="urgency-divider"></div>
+    <div class="urgency-detail">
+      <span class="urgency-detail-value">15</span>
+      <span class="urgency-detail-label">Spots Available</span>
+    </div>
+    <div class="urgency-divider"></div>
+    <div class="urgency-detail">
+      <span class="urgency-detail-value">Apr 6</span>
+      <span class="urgency-detail-label">Cohort Start Date</span>
+    </div>
+  </div>
+  <div class="hero-ctas">
+    <a href="YOUR_CORE_STRIPE_LINK" class="btn-primary">Enroll in the Cohort — $297</a>
+    <a href="YOUR_FULL_EXPERIENCE_STRIPE_LINK" class="btn-outline">Get the Full Experience — $597</a>
+  </div>
+</section>
+
+<!-- BIO -->
+<section class="bio">
+  <div class="bio-inner">
+    <div class="bio-avatar"></div>
+    <div>
+      <p class="bio-label">Your Coach</p>
+      <h3 class="bio-name">Danielle Lyn, Esq.</h3>
+      <p class="bio-text">Danielle is a licensed attorney, educator, and founder of Legally Prepped and Pivot & Purpose Group, LLC. She created Legally Prepped because she knows firsthand what it means to navigate a gatekept system without a roadmap — and she has spent her career making sure the next generation doesn't have to do it alone.<br><br>Her students don't just learn the process. They learn to own it.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p class="footer-brand">Legally Prepped</p>
+  <p class="footer-sub">A program of Pivot & Purpose Group, LLC &nbsp;·&nbsp; hello@danilynredefined.com</p>
+</footer>
+
+</body>
+</html>
